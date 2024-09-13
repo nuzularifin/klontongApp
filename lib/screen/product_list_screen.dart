@@ -68,10 +68,6 @@ class _ProductListScreenState extends State<ProductListScreen> {
             return const Center(child: CircularProgressIndicator());
           } else if (state is ProductLoaded) {
             final products = state.products;
-            if (!state.hasReachedMax) {
-              context.read<ProductBloc>().add(FetchMoreProducts());
-            }
-
             return ListView.builder(
               shrinkWrap: false,
               itemCount:
