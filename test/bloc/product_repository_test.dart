@@ -19,6 +19,20 @@ void main() {
   });
 
   group('FetchProducts', () {
+    final Product sampleDetailProduct = Product(
+        id: 1,
+        name: 'Test Product 1',
+        description: 'Description 1',
+        price: 100,
+        categoryName: 'Category 1',
+        categoryId: 14,
+        sku: 'MVXTW',
+        weight: 5,
+        width: 10,
+        length: 10,
+        height: 10,
+        image: 'https://google.com/');
+
     final List<Product> products = [
       Product(
         id: 1,
@@ -61,6 +75,27 @@ void main() {
         expect(result[i], equals(products[i]));
       }
       verify(mockApiProvider.fetchProduct(1, 10)).called(1);
+    });
+
+    test('should thrown an exception when fetchproduct fails', () async {
+      //Arrange
+      when(mockApiProvider.fetchProduct(1, 10))
+          .thenThrow(Exception('Failed to fetch products'));
+
+      // Act & assert
+      expect(() async => await productRepository.getProducts(1, 10),
+          throwsException);
+    });
+
+    test('should return detail product', () async {
+      when(mockApiProvider.detailProduct(1))
+          .thenAnswer((_) async => sampleDetailProduct);
+      // act
+      final result = await productRepository.detailProduct(1);
+
+      // assert
+      expect(result, equals(sampleDetailProduct));
+      verify(mockApiProvider.detailProduct(1)).called(1);
     });
   });
 }
