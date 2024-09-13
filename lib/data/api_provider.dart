@@ -6,7 +6,6 @@ import '../utils/logger.dart';
 
 class ApiProvider {
   final Dio _dio = Dio();
-  // final String _baseUrl = 'https://crudcrud.com/api/${dotenv.env['API_KEY']}';
   final String _baseUrl = 'https://ca3d5ce7159c03e78961.free.beeceptor.com/api';
   final String _dummyJsonResponse =
       'https://run.mocky.io/v3/c89be899-f89f-4ad6-bc26-87406e4cb1da';
