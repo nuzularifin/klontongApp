@@ -1,6 +1,30 @@
 # flutter_klontong
 
-A new Flutter project.
+This Project for Flutter CRUD with management state handling with FlutterBloc.
+
+The module of project consist of several sample like below : 
+- Folder data ==> for api hit and repository handling 
+- Folder utils ==> for settings and configuration app;
+- Folder Screen ==> presentation layer for screen or view;
+- Folder model ==> object;
+- Folder bloc == for management state, event and businesslogic handling;
+
+all library i am used : 
+- mockito for testing 
+- Flutter bloc for bloc management handling;
+- Dio for HTTP Request handling 
+- Dio Interceptor for logging Http Request;
+- Equatable for handling state management;
+- flutter_dotenv for handling key want to make it different build dev, stag, or production;
+
+if you want to learn it, you can try 
+- pub get first 
+- and then dart run build_runner build for generate mock testing
+- and then you can go 
+
+This app simple CRUD for implementation Bloc State management handling, i am didnt use Usecase because it can make more complex for explaining.
+
+Thank you..
 
 ## Getting Started
 
